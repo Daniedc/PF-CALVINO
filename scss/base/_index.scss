@@ -1,0 +1,270 @@
+@import "../utilidades/variables";
+@import "../utilidades/mixin";
+@import "../utilidades/listas";
+
+body{
+        .contenedor-home{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: $color-crema;
+        }
+}
+
+header{
+    .custom-navbar{
+        background-color: $color-tetsu;
+            .container-fluid{
+                padding: 20px;
+                .navbar-brand{
+                    img{
+                        height: 100%;
+                    }
+                }
+            }
+            .nav-link{
+                color: $color-crema;
+                font-family: montserrat;
+
+                &:hover{
+                    color: $color-neon-yellow;
+                }
+            }
+            .navbar-toggler{
+                border-color: transparent;
+                &:focus,
+                &:hover{
+                    background-color: transparent;
+                }
+                .navbar-toggler-icon{
+                    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(216, 230, 59, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+                }
+            }
+    }
+}
+
+main{
+    .banner-home{
+        .banner-desktop{
+            background-image: url("../imagenes/banners/banner-home.jpg");
+            width: 100%;
+            height: 600px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .misc-cinta{
+            img{
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+        }
+    }
+    .introduccion-info{
+        padding: 100px;
+        display: flex;
+        justify-content: center;
+        background-image: linear-gradient($color-light-lila, $color-crema);
+        p{
+            font-family: montserrat;
+            color: $color-tetsu;
+            font-size: 40px;
+            span{
+                font-family: roboto mono;
+                color: nth($paleta-secundaria, 3);
+            }
+        }
+        img{
+            height: 150px;
+        }
+    }
+    section{
+        background-color: $color-crema;
+        padding: 40px;
+        h1{
+            font-family: montserrat;
+            color: $color-tetsu;
+            text-align: center;
+            padding-bottom: 80px;
+        } 
+        .cards-trabajos{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 60px;
+            .card-1{
+                @include card-trabajo-home;
+            }
+            .card-2{
+                @include card-trabajo-home;
+            }
+            .card-3{
+                @include card-trabajo-home;
+            }
+            .card-4{
+                @include card-trabajo-home;
+            }
+        }
+        
+    }
+
+footer{
+    background-color: $color-tetsu;
+    p{
+        color: $color-cloud-dancer;
+        font-family: roboto mono;
+        text-align: center;
+        padding: 10px;
+        margin: 0;
+    }
+    .redes{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        a{
+            img{
+                height: 70%;
+            }
+        }
+    }
+}
+
+//responsive
+
+
+@media (max-width: 575px){
+    .contenedor-home{
+        display: flex;
+        flex-direction: column;
+
+        main{
+            .banner-home{
+                .banner-desktop{
+                    background-image: url("../imagenes/banners/banner-home-320px.jpg");
+                }
+                .misc-cinta{
+                    img{
+                        display: none;
+                    }
+                }
+            }
+
+            .introduccion-info{
+                display: flex;
+                flex-direction: column;
+                padding: 40px;
+                p{
+                    text-align: justify;
+                    font-size: 20px;
+                }
+                .ilus-ojo-index{
+                    text-align: center;
+                }
+            }
+        }
+
+        section{
+            h1{
+                padding-bottom: 20px;
+            }
+            .cards-trabajos{
+                display: flex;
+                flex-direction: column;
+                .card-1{
+                    .hashtags-cards{
+                        justify-content: center;
+                    }
+                }
+                .card-2{
+                    .hashtags-cards{
+                        justify-content: center;
+                        padding-left: 20px;
+                        padding-right: 30px;
+                    }
+                }
+                .card-3{
+                    .hashtags-cards{
+                    justify-content: center;
+                    padding-left: 20px;
+                    padding-right: 30px;
+                    }
+                }
+                .card-4{
+                    .hashtags-cards{
+                    justify-content: center;
+                    padding-left: 20px;
+                    padding-right: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px){
+    .contenedor-home{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+
+        main{
+            .banner-home{
+                .banner-desktop{
+                    background-image: url("../imagenes/banners/banner-home-700-40.png");
+                }
+                .misc-cinta{
+                    img{
+                        display: none;
+                    }
+                }
+                .introduccion-info{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 60px;
+                    .ilus-ojo-index{
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        section{
+            .cards-trabajos{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+    .contenedor-home{
+
+        main{
+            .banner-home{
+                .misc-cinta{
+                    img{
+                        display: none;
+                    }
+                }
+                .introduccion-info{
+                    display: flex;
+                    flex-direction: column;
+                    .ilus-ojo-index{
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        section{
+            .cards-trabajos{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
